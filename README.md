@@ -4,9 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 <title>Advance web Development</title>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+</script>
 </head>
 
 <body>
+
+<div id="Ebooks">
+<p>Sample Data:</p>
+
+</div>
+
+
+
+
+
 <div id="container">
 		<div id="header">
         	<h1>Advance<span class="off">Web Development</span></h1>
@@ -68,16 +81,15 @@
         
    </div>
    
-
-</body>
    <script>
 //fetches information about a specific book
 $.ajax({
 url: "https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC"
 }).done(function(data) {
-$('#itEbooks').append(JSON.stringify(data))
+$('#Ebooks').append(JSON.stringify(data))
 });
 
 
 </script>
+</body>
 </html>
