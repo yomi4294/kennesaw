@@ -68,6 +68,8 @@
         
    </div>
    
+
+</body>
    <script>
 //fetches information about a specific book
 $.ajax({
@@ -78,5 +80,4 @@ $('#itEbooks').append(JSON.stringify(data))
 
 
 </script>
-</body>
 </html>
