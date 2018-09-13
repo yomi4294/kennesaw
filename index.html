@@ -29,7 +29,7 @@
                 <h3>Links</h3>
                         
                 <ul>
-				    <li><a href="it4203.azurewebsites.net/">IT 4203 Fall 2017 - Jack G. Zheng</a></li>
+				    <li><a href="http://it4203.azurewebsites.net/">IT 4203 Fall 2017 - Jack G. Zheng</a></li>
                     <li><a href="place link here">Mile Stone 1</a></li>
                     <li><a href="place link here">Mile Stone 2</a></li>
                     <li><a href="place link here">Mile Stone 3</a></li>
@@ -67,5 +67,16 @@
         </div>
         
    </div>
+   
+   <script>
+//fetches information about a specific book
+$.ajax({
+url: "https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC"
+}).done(function(data) {
+$('#itEbooks').append(JSON.stringify(data))
+});
+
+
+</script>
 </body>
 </html>
