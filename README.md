@@ -1,37 +1,82 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>Advance web Development</title>
+</head>
 
-You can use the [editor on GitHub](https://github.com/yomi4294/kennesaw/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+<body>
+<div id="container">
+		<div id="header">
+        	<h1>Advance<span class="off">Web Development</span></h1>
+            <h2>by Abayomi Osota</h2>
+        </div>   
+        
+        <div id="menu">
+        	<ul>
+            	<li class="menuitem"><a href="#">Home</a></li>
+                
+            </ul>
+        </div>
+        
+        <div id="leftmenu">
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+        <div id="leftmenu_top"></div>
 
-### Markdown
+				<div id="leftmenu_main">    
+                
+                <h3>Links</h3>
+                        
+                <ul>
+				    <li><a href="http://it4203.azurewebsites.net/">IT 4203 Fall 2017 - Jack G. Zheng</a></li>
+                    <li><a href="place link here">Mile Stone 1</a></li>
+                    <li><a href="place link here">Mile Stone 2</a></li>
+                    <li><a href="place link here">Mile Stone 3</a></li>
+                    <li><a href="place link here">Mile Stone 4</a></li>
+                 
+                </ul>
+</div>
+                
+                
+              <div id="leftmenu_bottom"></div>
+        </div>
+        
+        
+        
+        
+		<div id="content">
+        
+        
+        <div id="content_top"></div>
+        <div id="content_main">
+        	<h2>This site will be used for all Advance Web Developments assignments </h2>
+        	<p>&nbsp;</p>
+           	<p>&nbsp;</p>
+       	  <h3>Intro</h3>
+       	  <p> Hello everyone, my name is Abayomi Osota. I am a senior at kennesaw state university. My major is in information systems. I plan to graduate by next year summer. In my free time i either watch tv or hangout with friends.</p>
+        	<p>&nbsp;</p>
+<h3>Purpose of page</h3>
+        	<p> The purpose of this page is to post links to assignments and everything else related to IT 4203</p>
+       	  <p>&nbsp;</p>
+		  <h3>Course Information</h3>
+       	  <p> This course covers advanced topics on web site and application development that include server side and client technologies, web services and APIs. This course has a focus on single-page web applications and web APIs, which has been the latest trends in modern web application development. Building upon your fundamental web site design and client-side development skills, this course enhance your web development skills at the client side, utilizing jQuery, JSON, and AJAX. You will complete at least one major project upon finishing this course. The objectives of this course are the explanation of  modern web application architecture, Demonstratration use of advanced applications of JavaScript and JavaScript libraries, the demonstratration use of HTML 5 features including CCS3 and supporting JavaScript APIs, how to Apply and integrate AJAX techniques to create asynchronous applications, and  the integratration of data and services provided as standard web APIs and data formats.  </p>
+        	<p>&nbsp;</p>
+        	
+<p>&nbsp;</p>
+        </div>
+        
+   </div>
+   
+   <script>
+//fetches information about a specific book
+$.ajax({
+url: "https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC"
+}).done(function(data) {
+$('#itEbooks').append(JSON.stringify(data))
+});
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yomi4294/kennesaw/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+</script>
+</body>
+</html>
