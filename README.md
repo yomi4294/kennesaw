@@ -43,7 +43,7 @@
                         
                 <ul>
 		    <li><a href="http://it4203.azurewebsites.net/">IT 4203 Fall 2017 - Jack G. Zheng</a></li>
-                    <li><a href="M1.html">Mile Stone 1</a></li>
+                    <li><a href="kennesaw.io/M1.html">Mile Stone 1</a></li>
                     <li><a href="place link here">Mile Stone 2</a></li>
                     <li><a href="place link here">Mile Stone 3</a></li>
                     <li><a href="place link here">Mile Stone 4</a></li>
