@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<title>Milestone 1</title>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+</script>
+
+<style>
+body {
+    background: #555;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+}
+</style>
+
+</head>
+<body>
+
+
+
+<div class="content">
+<h2>
+Part 4 of Milestone 1
+</h2>
+<br>
+<br>
+<br>
+<h2>
+Book
+</h2>
+<br>
+<br>
+<div id="itEbooks">
+
+</div>
+</body>
+
+
+<script>
+//fetches information about a specific book
+var bookData;
+$.ajax({
+url: "https://openlibrary.org/api/books?bibkeys=ISBN:0201558025,LCCN:93005405&format=json&jscmd=data "
+}).done(function(data) {
+for (var book in data) {
+$('#itEbooks').append("<p>" + data[book].title + "(" + book + ")<p>");
+}
+});
+</script>
+</div>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Milestone 1</title>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+</script>
+
+<style>
+body {
+    background: #555;
+}
+
+.content {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+}
+</style>
+
+</head>
+<body>
+
+
+
+<div class="content">
+<h2>
+Part 3 of Milestone 1
+</h2>
+<br>
+<br>
+<h2>
+Introduction of the Web
+</h2>
+<br>
+<br>
+<div id="itEbooks">
+
+</div>
+</body>
+
+</head>
+<body>
+<div id="itEbooks">
+
+</div>
+</body>
+<script>
+//fetches information about a specific book
+var bookData;
+$.ajax({
+url: "https://www.googleapis.com/books/v1/volumes?q=modern%20web"
+}).done(function(data) {
+var items = data.items;
+for (var book in items) {
+$('#itEbooks').append("<p><b>" + items[book].volumeInfo.title + "</b><br/>" + items[book].volumeInfo.description + "<br/><p>");
+}
+});
+</script>
+</html>
