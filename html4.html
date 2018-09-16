@@ -40,20 +40,20 @@ Book
 </h2>
 <br>
 <br>
-<div id="itEbooks">
+<div id="Ebook">
 
 </div>
 </body>
 
 
 <script>
-//fetches information about a specific book
-var bookData;
+
+var Data;
 $.ajax({
 url: "https://openlibrary.org/api/books?bibkeys=ISBN:0201558025,LCCN:93005405&format=json&jscmd=data "
 }).done(function(data) {
 for (var book in data) {
-$('#itEbooks').append("<p>" + data[book].title + "(" + book + ")<p>");
+$('#Ebook').append("<p>" + data[book].title + "(" + book + ")<p>");
 }
 });
 </script>
