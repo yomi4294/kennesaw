@@ -35,26 +35,26 @@ Introduction of the Web
 </h2>
 <br>
 <br>
-<div id="itEbooks">
+<div id="Ebook">
 
 </div>
 </body>
 
 </head>
 <body>
-<div id="itEbooks">
+<div id="Ebook">
 
 </div>
 </body>
 <script>
-//fetches information about a specific book
-var bookData;
+
+var Data;
 $.ajax({
 url: "https://www.googleapis.com/books/v1/volumes?q=modern%20web"
 }).done(function(data) {
-var items = data.items;
-for (var book in items) {
-$('#itEbooks').append("<p><b>" + items[book].volumeInfo.title + "</b><br/>" + items[book].volumeInfo.description + "<br/><p>");
+var item = data.item;
+for (var book in item) {
+$('#Ebook').append("<p><b>" + items[book].volumeInfo.title + "</b><br/>" + items[book].volumeInfo.description + "<br/><p>");
 }
 });
 </script>
