@@ -34,18 +34,18 @@ body {
     </h2>
     <br>
     <br>
-    <div id="itEbooks">
+    <div id="Ebook">
 
     </div>
 </div>
 <script type="text/javascript">
-//fetches information about a specific book
-var bookData;
+
+var Data;
 $.ajax({
 url: "https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC"
 }).done(function(data) {
     console.log(data);
-    $('#itEbooks').append("<p>" + data.volumeInfo.title + "(" + data.volumeInfo.authors + ")<p>");
+    $('#Ebook').append("<p>" + data.volumeInfo.title + "(" + data.volumeInfo.authors + ")<p>");
 })
 
 </script>
