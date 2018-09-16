@@ -26,7 +26,7 @@ body {
 
 <div class="content">
 <h2>
-Part 1 of Milestone 1
+Part 1 
 </h2>
 <br>
 <br>
@@ -35,29 +35,29 @@ Advance Web development Books
 </h2>
 <br>
 <br>
-<div id="itEbooks">
+<div id="Ebook">
 
 </div>
 </body>
 
 </head>
 <body>
-<div id="itEbooks">
+<div id="Ebook">
 
 </div>
 </body>
 
 <body>
 <script>
-//fetches information about a specific book
-var bookData;
+
+var book;
 $.ajax({
 url: "http://it-ebooks-api.info/v1/search/modern%20web"
 }).done(function(data) {
 var books = data.Books;
 for (var i = 0; i < books.length; ++i) {
 var book = books[i];
-$('#itEbooks').append("<p>" + book.Title + "(" + book.SubTitle + ")<p>");
+$('#Ebook').append("<p>" + book.Title + "(" + book.SubTitle + ")<p>");
 }
 });
 </script>
