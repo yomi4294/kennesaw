@@ -4,9 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 <title>Advance web Development</title>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+</script>
 </head>
 
 <body>
+
+<div id="Ebooks">
+<p>Sample Data:</p>
+
+</div>
+
+
+
+
+
 <div id="container">
 		<div id="header">
         	<h1>Advance<span class="off">Web Development</span></h1>
@@ -29,8 +42,8 @@
                 <h3>Links</h3>
                         
                 <ul>
-				    <li><a href="http://it4203.azurewebsites.net/">IT 4203 Fall 2017 - Jack G. Zheng</a></li>
-                    <li><a href="place link here">Mile Stone 1</a></li>
+		    <li><a href="http://it4203.azurewebsites.net/">IT 4203 Fall 2017 - Jack G. Zheng</a></li>
+                    <li><a href="yomi4294.github.io/kennesaw.io/html1.html">Mile Stone 1</a></li>
                     <li><a href="place link here">Mile Stone 2</a></li>
                     <li><a href="place link here">Mile Stone 3</a></li>
                     <li><a href="place link here">Mile Stone 4</a></li>
@@ -73,7 +86,7 @@
 $.ajax({
 url: "https://www.googleapis.com/books/v1/volumes/Wfan6L9RGgYC"
 }).done(function(data) {
-$('#itEbooks').append(JSON.stringify(data))
+$('#Ebooks').append(JSON.stringify(data))
 });
 
 
