@@ -6,23 +6,40 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
       <script src="js/main.js"></script>
       <script>
-         function Google.Search() {
-		 var result = document.getElementById('results');
+         function BSearch() {
+         
          var search = document.getElementById('search').value;
-         var resultString = "";         
-         console.log(search);         
-         $.ajax({        
-         url: "https://www.googleapis.com/books/v1/volumes?q=" + search,         
-         dataType: "json",         
-         success: function(data) {         
-         console.log(data);        
-         for (i = 0; i < data.items.length; i++) {       
-         resultString += "<a href='M2P2.html?id="+data.items[i].id+"'>" + data.items[i].volumeInfo.title + "</a> <br/>";       
-         }       
-         result.innerHTML = resultString;       
-         },        
-         type: 'GET'        
-         });       
+         
+         var result = document.getElementById('results');
+         
+         var resultString = "";
+         
+         console.log(search);
+         
+         $.ajax({
+         
+         url: "https://www.googleapis.com/books/v1/volumes?q=" + search,
+         
+         dataType: "json",
+         
+         success: function(data) {
+         
+         console.log(data);
+         
+         for (i = 0; i < data.items.length; i++) {
+         
+         resultString += "<a href='M2P2.html?id="+data.items[i].id+"'>" + data.items[i].volumeInfo.title + "</a> <br/>";
+         
+         }
+         
+         result.innerHTML = resultString;
+         
+         },
+         
+         type: 'GET'
+         
+         });
+         
          }
          
          
@@ -32,7 +49,7 @@
    <body>
       <h1>Book Search</h1>
       <input id="search" placeholder="search">
-      <button id="button1" type="button" onclick="Google.Search()">Search</button>
+      <button id="button1" type="button" onclick="BSearch()">Search</button>
       <div id="results"></div>
    </body>
 </html>
