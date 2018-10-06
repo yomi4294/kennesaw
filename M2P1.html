@@ -6,40 +6,23 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
       <script src="js/main.js"></script>
       <script>
-         function BSearch() {
-         
+         function Google.Search() {
+		 var result = document.getElementById('results');
          var search = document.getElementById('search').value;
-         
-         var result = document.getElementById('results');
-         
-         var resultString = "";
-         
-         console.log(search);
-         
-         $.ajax({
-         
-         url: "https://www.googleapis.com/books/v1/volumes?q=" + search,
-         
-         dataType: "json",
-         
-         success: function(data) {
-         
-         console.log(data);
-         
-         for (i = 0; i < data.items.length; i++) {
-         
-         resultString += "<a href='M2P2.html?id="+data.items[i].id+"'>" + data.items[i].volumeInfo.title + "</a> <br/>";
-         
-         }
-         
-         result.innerHTML = resultString;
-         
-         },
-         
-         type: 'GET'
-         
-         });
-         
+         var resultString = "";         
+         console.log(search);         
+         $.ajax({        
+         url: "https://www.googleapis.com/books/v1/volumes?q=" + search,         
+         dataType: "json",         
+         success: function(data) {         
+         console.log(data);        
+         for (i = 0; i < data.items.length; i++) {       
+         resultString += "<a href='M2P2.html?id="+data.items[i].id+"'>" + data.items[i].volumeInfo.title + "</a> <br/>";       
+         }       
+         result.innerHTML = resultString;       
+         },        
+         type: 'GET'        
+         });       
          }
          
          
@@ -49,8 +32,8 @@
    <body>
       <h1>Book Search</h1>
       <input id="search" placeholder="search">
-      <button id="button1" type="button" onclick="BSearch()">click here</button>
+      <button id="button1" type="button" onclick="Google.Search()">Search</button>
       <div id="results"></div>
    </body>
 </html>
-COPY TO CLIPBOARD	 SELECT ALL
+
