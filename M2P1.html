@@ -1,56 +1,71 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>Google Books Search</title>
-      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-      <script src="js/main.js"></script>
-      <script>
-         function BSearch() {
-         
-         var search = document.getElementById('search').value;
-         
-         var result = document.getElementById('results');
-         
-         var resultString = "";
-         
-         console.log(search);
-         
-         $.ajax({
-         
-         url: "https://www.googleapis.com/books/v1/volumes?q=" + search,
-         
-         dataType: "json",
-         
-         success: function(data) {
-         
-         console.log(data);
-         
-         for (i = 0; i < data.items.length; i++) {
-         
-         resultString += "<a href='M2P2.html?id="+data.items[i].id+"'>" + data.items[i].volumeInfo.title + "</a> <br/>";
-         
-         }
-         
-         result.innerHTML = resultString;
-         
-         },
-         
-         type: 'GET'
-         
-         });
-         
-         }
-         
-         
-         
-      </script>
-   </head>
-   <body>
-      <h1>Book Search</h1>
-      <input id="search" placeholder="search">
-      <button id="button1" type="button" onclick="BSearch()">Search</button>
-      <div id="results"></div>
-   </body>
-</html>
 
+<html>
+
+<head>
+
+<title>Google Books Search</title>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+<script src="js/main.js"></script>
+
+<script>
+
+function BSearch() {
+
+var search = document.getElementById('search').value;
+
+var result = document.getElementById('results');
+
+var resultString = "";
+
+console.log(search);
+
+$.ajax({
+
+url: "https://www.googleapis.com/books/v1/volumes?q=" + search,
+
+dataType: "json",
+
+success: function(data) {
+
+console.log(data);
+
+for (i = 0; i < data.items.length; i++) {
+
+resultString += "<a href='bookDetails.html?id="+data.items[i].id+"'>" + data.items[i].volumeInfo.title + "</a> <br/>";
+
+}
+
+result.innerHTML = resultString;
+
+},
+
+type: 'GET'
+
+});
+
+}
+
+
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Book Search</h1>
+
+<input id="search" placeholder="title or author">
+
+<button id="button1" type="button" onclick="BSearch()">click here</button>
+
+<div id="results"></div>
+
+</body>
+
+</html>
