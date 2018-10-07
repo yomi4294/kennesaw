@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -14,9 +15,13 @@
 
 $(function Bookshelf() {
 
-var service_point1 = " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/";
+var service_point1 =
 
-var service_point2 = " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/volumes";
+" https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/";
+
+var service_point2 =
+
+" https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/volumes";
 
 $.getJSON(service_point2, function (json2) {
 
@@ -69,5 +74,3 @@ $(".bookdiv").css("width", "300px");
 </body>
 
 </html>
-
-
