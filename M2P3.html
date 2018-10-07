@@ -12,19 +12,14 @@
 
 <script>
 
-$(function Bookshelf() {
+$(function Books() {
 
-var service_point1 =
+var point1 = " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/";
 
-" https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/";
+var point2 = " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/volumes";
 
-var service_point2 =
+$.getJSON(point2, function (json2) {
 
-" https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/volumes";
-
-$.getJSON(service_point2, function (json2) {
-
-//$("#shelf").text(json.title);
 
 debugger;
 
@@ -32,11 +27,11 @@ resultHTML = "";
 
 for (i in json2.items) {
 
-var booktitle = json2.items[i].volumeInfo.title;
+var B.Title = json2.items[i].volumeInfo.title;
 
-var bookid = json2.items[i].id;
+var B.Id = json2.items[i].id;
 
-var bookURL = json2.items[i].volumeInfo.infoLink; // navigation link
+var B.URL = json2.items[i].volumeInfo.infoLink;
 
 var cover = json2.items[i].volumeInfo.imageLinks.smallThumbnail;
 
@@ -44,7 +39,7 @@ resultHTML += "<div class='bookdiv'>";
 
 resultHTML += "<img src='" + cover + "' style='float: left' />";
 
-resultHTML += "<a href='" + bookURL + "'>" + booktitle + "</a>";
+resultHTML += "<a href='" + B.URL + "'>" + B.Title + "</a>";
 
 resultHTML += "</div>";;
 
@@ -64,7 +59,7 @@ $(".bookdiv").css("width", "300px");
 
 <h1 id="title"></h1>
 
-<h2>Web Development: <span id="shelf"></span>
+<h2>Kingdom BookShelf: <span id="shelf"></span>
 
 </h2>
 
@@ -73,3 +68,4 @@ $(".bookdiv").css("width", "300px");
 </body>
 
 </html>
+
