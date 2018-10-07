@@ -4,8 +4,8 @@
 
 <head>
 
-    <title>Google Books Search</title>
-
+    <title>Google Book Shelf</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 </head>
@@ -23,7 +23,7 @@
 
         $.getJSON(point2, function(json2) {
 
-            //$("#shelf").text(json.title);
+          
 
             debugger;
 
@@ -69,5 +69,11 @@
     <div id="results" style="display: flex; flex-wrap: wrap;"></div>
 
 </body>
+
+<style>
+    body {
+        background-color: gray;
+    }
+</style>    
 
 </html>
