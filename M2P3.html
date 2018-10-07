@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 
 <html>
@@ -32,11 +37,11 @@ resultHTML = "";
 
 for (i in json2.items) {
 
-var booktitle = json2.items[i].volumeInfo.title;
+var Title = json2.items[i].volumeInfo.title;
 
-var bookid = json2.items[i].id;
+var Id = json2.items[i].id;
 
-var bookURL = json2.items[i].volumeInfo.infoLink; // navigation link
+var URL = json2.items[i].volumeInfo.infoLink; // navigation link
 
 var cover = json2.items[i].volumeInfo.imageLinks.smallThumbnail;
 
@@ -44,7 +49,7 @@ resultHTML += "<div class='bookdiv'>";
 
 resultHTML += "<img src='" + cover + "' style='float: left' />";
 
-resultHTML += "<a href='" + bookURL + "'>" + booktitle + "</a>";
+resultHTML += "<a href='" + URL + "'>" + Title + "</a>";
 
 resultHTML += "</div>";;
 
