@@ -4,75 +4,71 @@
 
 <head>
 
-<title>Google Books Search</title>
+    <title>Google Books Search</title>
 
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
 </head>
 
 <script>
+    $(function Bookshelf() {
 
-$(function Bookshelf() {
+        var point1 =
 
-var point1 =
+            " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/";
 
-" https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/";
+        var point2 =
 
-var point2 =
+            " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/volumes";
 
-" https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/volumes";
+        $.getJSON(point2, function(json2) {
 
-$.getJSON(point2, function (json2) {
+            //$("#shelf").text(json.title);
 
-//$("#shelf").text(json.title);
+            debugger;
 
-debugger;
+            resultHTML = "";
 
-resultHTML = "";
+            for (i in json2.items) {
 
-for (i in json2.items) {
+                var Title = json2.items[i].volumeInfo.title;
 
-var Title = json2.items[i].volumeInfo.title;
+                var Id = json2.items[i].id;
 
-var Id = json2.items[i].id;
+                var URL = json2.items[i].volumeInfo.infoLink;
 
-var URL = json2.items[i].volumeInfo.infoLink;
+                var cover = json2.items[i].volumeInfo.imageLinks.smallThumbnail;
 
-var cover = json2.items[i].volumeInfo.imageLinks.smallThumbnail;
+                resultHTML += "<div class='DIV.Books'>";
 
-resultHTML += "<div class='bookdiv'>";
+                resultHTML += "<img src='" + cover + "' style='float: left' />";
 
-resultHTML += "<img src='" + cover + "' style='float: left' />";
+                resultHTML += "<a href='" + URL + "'>" + Title + "</a>";
 
-resultHTML += "<a href='" + URL + "'>" + Title + "</a>";
+                resultHTML += "</div>";;
 
-resultHTML += "</div>";;
+            }
 
-}
+            $("#results").html(resultHTML);
 
-$("#results").html(resultHTML);
+            $(".DIV.Books").css("width", "300px");
 
-$(".bookdiv").css("width", "300px");
+        });
 
-});
-
-});
-
+    });
 </script>
 
 <body>
 
-<h1 id="title"></h1>
+    <h1 id="title"></h1>
 
-<h2>Kingdom Shelf: <span id="shelf"></span>
+    <h2>Kingdom BookShelf: <span id="shelf"></span>
 
 </h2>
 
-<div id="results" style="display: flex; flex-wrap: wrap;"></div>
+    <div id="results" style="display: flex; flex-wrap: wrap;"></div>
 
 </body>
 
 </html>
-
-
 
