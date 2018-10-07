@@ -14,12 +14,13 @@
 
 $(function Books() {
 
-var point1 = " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/";
+var service_point1 = " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/";
 
-var point2 = " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/volumes";
+var service_point2 = " https://www.googleapis.com/books/v1/users/111562079777731652122/bookshelves/1001/volumes";
 
-$.getJSON(point2, function (json2) {
+$.getJSON(service_point2, function (json2) {
 
+//$("#shelf").text(json.title);
 
 debugger;
 
@@ -31,7 +32,7 @@ var B.Title = json2.items[i].volumeInfo.title;
 
 var B.Id = json2.items[i].id;
 
-var B.URL = json2.items[i].volumeInfo.infoLink;
+var B.URL = json2.items[i].volumeInfo.infoLink; // navigation link
 
 var cover = json2.items[i].volumeInfo.imageLinks.smallThumbnail;
 
@@ -68,4 +69,5 @@ $(".bookdiv").css("width", "300px");
 </body>
 
 </html>
+
 
