@@ -5,12 +5,13 @@
 <head>
 
 <title>Google Books Search</title>
-
+<link href="css/pagination.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-2.1.4.min.js">
 
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="js/pagination.js"></script>
 
 <!-- <script src="js/main.js"></script> -->
 
@@ -27,6 +28,15 @@ var resultString = "";
 console.log(search);
 
 $.ajax({
+
+$("#tab").pagination({
+   items: 5,
+   contents: 'contents',
+   previous: 'Previous',
+   next: 'Next',
+   position: 'bottom',
+   });
+
 
 url: "https://www.googleapis.com/books/v1/volumes?q=id:"+ search,
 
@@ -72,11 +82,18 @@ type: 'GET'
 
 <body>
 
+<div id="wrapper">
+<div class="contents">
+
+
 <h1><u>Book Search</u></h1> <input id="search" placeholder="type in here"> <button id="buttons" type="button"
 
 onclick="B_Search()">click here</button>
 
 <div id="results"></div>
+
+</div>
+</div>
 
 </body>
 
