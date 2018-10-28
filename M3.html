@@ -1,17 +1,48 @@
-<!DOCTYPE html>
-
 <html>
 
 <head>
 
 <title>Google Books Search</title>
-<link href="css/pagination.css" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-2.1.4.min.js">
 
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="js/pagination.js"></script>
+
+
+<style>
+
+body{
+	background:lightblue
+}
+.wrap{
+	max-width:400px;
+	margin:auto;
+	margin-top:10px;
+}
+.pagination, pagination-last{
+		float:left;
+}
+a{
+	text-decoration:none;
+	padding:15px 20px;
+	border:1px solid black;
+	border-right:none;
+	background:#f2f2f2;
+	font-size:18px;
+	font-weight:bold;
+}	
+.pagination-last a{	
+	border-right:1px solid black;
+}	
+a:hover {
+	background:orange;
+    color;white;
+}	
+	
+
+</style>
 
 <!-- <script src="js/main.js"></script> -->
 
@@ -28,15 +59,6 @@ var resultString = "";
 console.log(search);
 
 $.ajax({
-
-$("#tab").pagination({
-   items: 5,
-   contents: 'contents',
-   previous: 'Previous',
-   next: 'Next',
-   position: 'bottom',
-   });
-
 
 url: "https://www.googleapis.com/books/v1/volumes?q=id:"+ search,
 
@@ -76,24 +98,42 @@ type: 'GET'
 
 }
 
+
+
+
+
 </script>
 
 </head>
 
 <body>
 
-<div id="wrapper">
-<div class="contents">
-
-
 <h1><u>Book Search</u></h1> <input id="search" placeholder="type in here"> <button id="buttons" type="button"
 
 onclick="B_Search()">click here</button>
 
+
+
 <div id="results"></div>
 
-</div>
-</div>
+
+
+
+<form>
+<input type="button" value="My BookShelf" onclick="window.location.href='https://yomi4294.github.io/kennesaw.io/M2P3.html'" />
+</form>
+
+
+<div class ="wrap">
+	<div class ="pagination"><a href ="#" id= "page1"> 1 </a></div>
+	<div class ="pagination"><a href ="#" id=" page2"> 2 </a></div>
+	<div class ="pagination"><a href ="#" id= "page3"> 3 </a></div>
+	<div class ="pagination"><a href ="#" id= "page4"> 4 </a></div>
+	<div class ="pagination-last"><a href ="#" id= "page5"> 5 </a></div>
+	
+</div>	
+
+
 
 </body>
 
