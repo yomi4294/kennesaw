@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Mustache Template</title>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.0/mustache.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+<style>
+
+body{
+
+background:lightblue
+
+}
+
+.wrap{
+
+max-width:400px;
+
+margin:auto;
+
+margin-top:10px;
+
+}
+
+.pagination, pagination-last{
+
+float:left;
+
+}
+
+a{
+
+text-decoration:none;
+
+padding:15px 20px;
+
+border:1px solid black;
+
+border-right:none;
+
+background:#f2f2f2;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+.pagination-last a{
+
+border-right:1px solid black;
+
+}
+
+a:hover {
+
+background:orange;
+
+color:white;
+
+}
+
+div {
+    background-color: blue;
+    width: 1500px;
+    height: 800px;
+    border: 1px dotted black;
+    overflow: scroll;
+}
+</style>
+
+<script>
+
+$(function(){
+
+$("#btnGrid").click(function (){
+
+$(".book").css("width", "24%");
+
+$("#results").attr("data-layout","Grid");
+
+});
+
+$("#btnList").click(function (){
+
+$(".book").css("width", "99%");
+
+$("#results").attr("data-layout","List");
+
+});
+
+});
+
+</script>
+
+<script id="booktemplate" type="text/template">
+
+{{#items}}
+
+<div class='book'>
+
+<h2>{{volumeInfo.title}}</h2>
+
+<img src='{{volumeInfo.imageLinks.thumbnail}}' width='100' />
+
+<h2>{{volumeInfo.description}}</h2>
+
+<h2>{{volumeInfo.publisher}}</h2>
+
+<h2>{{volumeInfo.publishedDate}}</h2>
+
+<h2>{{volumeInfo.authors}}</h2>
+
+<div>{{Description}}</div>
+
+</div>
+
+{{/items}}
+
+</script>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+$("#button1").click(function () {
+
+$("#results").html("Searching ...");
+
+$.getJSON("https://www.googleapis.com/books/v1/volumes?q=id/" + $("#searchTerm").val(),
+
+function (jsonData) {
+
+$("#results").html("");
+
+var template = $('#booktemplate').html();
+
+var html = Mustache.render(template, jsonData);
+
+$("#results").html(html);
+
+});
+
+});
+
+});
+
+</script>
+
+<style>
+
+#results
+
+{
+
+display: flex;
+
+flex-wrap: wrap;
+
+}
+
+.book
+
+{
+
+border: thin solid blue;
+
+width: 80%;
+
+margin: 5px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div>
+
+<form>
+
+<input type="button" value="My BookShelf" onclick="window.location.href='https://yomi4294.github.io/kennesaw.io/M2P3.html'" />
+
+</form>
+
+<Title>Google Books Search</title>
+
+<h1> Google Book Search</h1>
+
+<input type="text" id="searchTerm" value="text here" />
+
+<input type="button" id="button1" value="Search" />
+
+<input type="button" id="btnGrid" value="Grid" />
+
+<input type="button" id="btnList" value="List" />
+
+</div>
+
+<div id="results"></div>
+
+<div class="wrap">
+
+<div class="pagination"><a href="#" id="page1"> 1 </a></div>
+
+<div class="pagination"><a href="#" id=" page2"> 2 </a></div>
+
+<div class="pagination"><a href="#" id="page3"> 3 </a></div>
+
+<div class="pagination"><a href="#" id="page4"> 4 </a></div>
+
+<div class="pagination-last"><a href="#" id="page5"> 5 </a></div>
+
+</div>
+
+</body>
+
+</html>
