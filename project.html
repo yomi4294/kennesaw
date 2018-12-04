@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head>
+      <title>Weather Sample</title>
+      <meta charset = "utf-8" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Helvetica; color: #000000}
+    span.s1 {font-kerning: none}
+    body {
+      background-color: Gainsboro;
+      font-size:15px;
+    color:#4c4c4c;
+    line-height:1.7em;
+    font-weight:400;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center top;
+      }
+  </style>
+   </head>
+
+   <body> 
+      <script>
+         $(document).ready(function () {
+
+            var resultElement = $('#resultDiv');
+
+            $('#city').change(function() {
+                var index = $(this).prop('selectedIndex');
+                var apiOption = $('input[type=radio][name=apiOption]').val();
+
+                if(index != 0) {
+                    var requestData = $(this).val().toLowerCase() + ",us";
+
+                    $.ajax({
+                        url: 'http://api.openweathermap.org/data/2.5/' + apiOption,
+                        method: 'get',           
+                        data: { q: requestData, appid:'772d000233a1c5f04a31de3bbef6141a', units:'metric'},
+                        dataType: 'json',            
+                        success: function (response) {
+                            resultElement.html('');
+                            var content = "<p> City name: " + response.name + "</p>";
+                            content += "<p> time refreshed: " + new Date(response.dt* 1000).toLocaleString()  + "</p>";
+                            for(var i=0; i<response.weather.length; i++) {
+                                content += "<p> The weather will be like: " + response.weather[i].description + "</p>";
+                            }
+                            content += "<p> temp: " + response.main.temp + "</p>";
+                            resultElement.html(content);                             
+                        },
+                        error: function (err) {
+                             alert(err);
+                        }
+                    });
+                }           
+            });
+
+
+            $('input[type=radio][name=apiOption]').change(function() {
+                $('#city').val($("#city option:first").val());
+            });
+         });
+
+      </script>
+<div align="center">
+  <h1>IT 4203 Advanced Web Development </h1>
+  <h2>Isaac E & Abayomi Osota Project </h2>
+</div>
+
+
+      <div align="center" style="border: thin solid black">
+      <table>
+         <tr>
+            <td>Pick Between</td>
+            <td>
+            <input type="radio" name="apiOption" value="weather" checked>Current Weather</input>
+            <input type="radio" name="apiOption" value="forecast">Weather forecast</input>
+            </td>
+         </tr>
+         <tr>
+            <td>Major Cities in the US</td>
+            <td>
+                <select id='city'>
+                    <option>Select from list</option>
+                    <option>Atlanta</option>
+                    <option>New York</option>
+                    <option>Los Angeles</option>
+                    <option>Houston</option>
+                    <option>New Orleans</option>
+                    <option>Dallas</option>
+                    <option>Miami</option>
+                    <option>Raleigh</option>
+                </select>
+            </td>
+         </tr>
+      </table>
+      <br /><br />
+      <div id="resultDiv">
+      </div>
+
+    </div>
+   </body>
+</html>
