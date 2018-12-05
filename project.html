@@ -29,10 +29,8 @@
             $('#city').change(function() {
                 var index = $(this).prop('selectedIndex');
                 var apiOption = $('input[type=radio][name=apiOption]').val();
-
                 if(index != 0) {
                     var requestData = $(this).val().toLowerCase() + ",us";
-
                     $.ajax({
                         url: 'http://api.openweathermap.org/data/2.5/' + apiOption,
                         method: 'get',           
@@ -40,13 +38,35 @@
                         dataType: 'json',            
                         success: function (response) {
                             resultElement.html('');
-                            var content = "<p> City name: " + response.name + "</p>";
-                            content += "<p> time refreshed: " + new Date(response.dt* 1000).toLocaleString()  + "</p>";
+                            var lilimage =""
+                            var resultContent = "<p> City name: " + response.name + "</p>";
+                            resultContent += "<p> time refreshed: " + new Date(response.dt* 1000).toLocaleString()  + "</p>";
                             for(var i=0; i<response.weather.length; i++) {
-                                content += "<p> The weather will be like: " + response.weather[i].description + "</p>";
+                                 var weatherType = response.weather[i].description;
+                                switch (weatherType) {
+                                  case "scattered clouds": 
+                                  lilimage = "⛅️";
+                                  break;
+                                  case "clear sky":
+                                  lilimage = "☀️";
+                                  break;
+                                  case "broken clouds":
+                                  lilimage ="🌁";
+                                  break;
+                                  case "light snow":
+                                  lilimage = "❄️";
+                                  break;
+                                  case "overcast clouds":
+                                  lilimage ="🌥";
+                                  break;
+                                  case "light rain":
+                                  lilimage = "🌧";
+                                  break;
+                                }
+                                resultContent += "<p> The weather will be like: " + response.weather[i].description + " " + lilimage + "</p>";
                             }
-                            content += "<p> temp: " + response.main.temp + "</p>";
-                            resultElement.html(content);                             
+                            resultContent += "<p> Temperature: " + response.main.temp + "</p>";
+                            resultElement.html(resultContent);                             
                         },
                         error: function (err) {
                              alert(err);
@@ -90,6 +110,10 @@
                     <option>Dallas</option>
                     <option>Miami</option>
                     <option>Raleigh</option>
+                    <option>Cleveland</option>
+                    <option>Portland</option>
+                    <option>Phoenix</option>
+                    <option>San Jose</option>
                 </select>
             </td>
          </tr>
